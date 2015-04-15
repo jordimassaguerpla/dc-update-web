@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Docker Images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User name</th>
+      <th>Repository name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @docker_images.each do |docker_image| %>
+      <tr>
+        <td><%= docker_image.user_name %></td>
+        <td><%= docker_image.repository_name %></td>
+        <td><%= link_to 'Show', docker_image %></td>
+        <td><%= link_to 'Edit', edit_docker_image_path(docker_image) %></td>
+        <td><%= link_to 'Destroy', docker_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Docker image', new_docker_image_path %>
