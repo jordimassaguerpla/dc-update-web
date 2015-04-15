@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415105255) do
+ActiveRecord::Schema.define(version: 20150415125737) do
 
   create_table "docker_images", force: :cascade do |t|
     t.string   "user_name"
     t.string   "repository_name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "runs", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "stop"
+    t.boolean  "success"
+    t.string   "log_file"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "docker_image_id"
   end
 
 end

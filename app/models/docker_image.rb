@@ -1,9 +1,9 @@
 class DockerImage < ActiveRecord::Base
+  has_many :runs
   # TODO: manage logging
   def run_update()
     puts "Running dc-update #{full_name}"
-    output = `dc-update #{full_name}`
-    puts output
+    system "dc-update #{full_name}"
   end
   def full_name
     "#{user_name}/#{repository_name}"

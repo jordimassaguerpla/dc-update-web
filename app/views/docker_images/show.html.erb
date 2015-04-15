@@ -10,5 +10,25 @@
   <%= @docker_image.repository_name %>
 </p>
 
+<p>
+  <strong>Checks history</strong>
+  <% if @docker_image.runs%>
+    <ul>
+      <% @docker_image.runs.each do |run| %>
+        <li>
+          <%= run.stop %>
+          <% if run.success %>
+            <span style="color: green">Ok</span>
+          <% else %>
+            <span style="color: red">Failed</span>
+          <% end %>
+        </li>
+      <% end %>
+    </lu>
+  <% else %>
+    Not checked yet
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_docker_image_path(@docker_image) %> |
 <%= link_to 'Back', docker_images_path %>
