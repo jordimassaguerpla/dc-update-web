@@ -1,3 +1,4 @@
 # dc-update-web
+{<img src="https://hakiri.io/github/jordimassaguerpla/dc-update-web/master.svg" alt="security" />}[https://hakiri.io/github/jordimassaguerpla/dc-update-web/master]
 Web interface for updating docker containments (see dc-update project)
 
