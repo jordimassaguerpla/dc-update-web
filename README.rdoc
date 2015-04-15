@@ -1,5 +1,4 @@
 {<img src="https://travis-ci.org/jordimassaguerpla/dc-update-web.svg" alt="Build Status" />}[https://travis-ci.org/jordimassaguerpla/dc-update-web]
-{<img src="https://gemnasium.com/jordimassaguerpla/dc-update-web.svg" alt="Dependency Status" />}[https://gemnasium.com/jordimassaguerpla/dc-update-web]
 # dc-update-web
 Web interface for updating docker containments (see dc-update project)
 
