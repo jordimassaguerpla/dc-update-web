@@ -2,10 +2,11 @@
 Web interface for updating docker containments (see dc-update project)
 
 It requires:
-- dc-update to be in the path
+- dc-update to be in the path[1]
 - a .dockercfg file under the user home directory of the user who runs the rails app
 
 How it works:
 - add your images throught the web interface
 - run "rake dc_update:run" on a crontab
 
+[1] You can install it from http://download.opensuse.org/repositories/home:/jordimassaguerpla:/dc-update/
