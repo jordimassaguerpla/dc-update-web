@@ -69,6 +69,6 @@ class DockerImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def docker_image_params
-      params.require(:docker_image).permit(:user_name, :repository_name)
+      params.require(:docker_image).permit(:user_name, :repository_name, :user_id)
     end
 end

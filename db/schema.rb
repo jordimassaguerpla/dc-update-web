@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415125737) do
+ActiveRecord::Schema.define(version: 20150416122431) do
+
+  create_table "docker_cfgs", force: :cascade do |t|
+    t.string   "url"
+    t.string   "auth"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "docker_images", force: :cascade do |t|
     t.string   "user_name"
     t.string   "repository_name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "user_id"
   end
 
   create_table "runs", force: :cascade do |t|
@@ -28,6 +37,15 @@ ActiveRecord::Schema.define(version: 20150415125737) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "docker_image_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "url"
+    t.string   "auth"
+    t.string   "email"
+    t.integer  "docker_cfg_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

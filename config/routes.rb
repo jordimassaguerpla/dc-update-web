@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :docker_cfgs
   resources :docker_images
   root 'docker_images#index'
   # The priority is based upon order of creation: first created -> highest priority.

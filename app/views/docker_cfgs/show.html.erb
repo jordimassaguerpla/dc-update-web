@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @docker_cfg.url %>
+</p>
+
+<p>
+  <strong>Auth:</strong>
+  <%= @docker_cfg.auth %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @docker_cfg.email %>
+</p>
+
+<%= link_to 'Edit', edit_docker_cfg_path(@docker_cfg) %> |
+<%= link_to 'Back', docker_cfgs_path %>

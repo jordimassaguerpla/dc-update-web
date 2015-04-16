@@ -1,0 +1,29 @@
+<%= form_for(@docker_cfg) do |f| %>
+  <% if @docker_cfg.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@docker_cfg.errors.count, "error") %> prohibited this docker_cfg from being saved:</h2>
+
+      <ul>
+      <% @docker_cfg.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :auth %><br>
+    <%= f.text_field :auth %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

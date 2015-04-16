@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Docker Cfgs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Auth</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @docker_cfgs.each do |docker_cfg| %>
+      <tr>
+        <td><%= docker_cfg.url %></td>
+        <td><%= docker_cfg.auth %></td>
+        <td><%= docker_cfg.email %></td>
+        <td><%= link_to 'Show', docker_cfg %></td>
+        <td><%= link_to 'Edit', edit_docker_cfg_path(docker_cfg) %></td>
+        <td><%= link_to 'Destroy', docker_cfg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Docker cfg', new_docker_cfg_path %>
