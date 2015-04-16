@@ -19,7 +19,7 @@
       <tr>
         <td><%= docker_image.user_name %></td>
         <td><%= docker_image.repository_name %></td>
-        <td><%= docker_image.user_id %></td>
+        <td><%= link_to docker_image.user_id, User.find_by_id(docker_image.user_id) %></td>
         <td>
           <% if docker_image.runs && docker_image.runs.length > 0 %>
             <%= docker_image.runs.last.stop %> 

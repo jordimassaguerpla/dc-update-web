@@ -12,7 +12,7 @@
 
 <p>
   <strong>Docker cfg:</strong>
-  <%= @user.docker_cfg_id %>
+  <%= link_to @user.docker_cfg_id, DockerCfg.find_by_id(@user.docker_cfg_id) %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

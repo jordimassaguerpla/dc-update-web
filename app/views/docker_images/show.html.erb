@@ -12,7 +12,7 @@
 
 <p>
   <strong>User id:</strong>
-  <%= @docker_image.user_id %>
+  <%= link_to @docker_image.user_id, User.find_by_id(@docker_image.user_id) %>
 </p>
 
 <p>
