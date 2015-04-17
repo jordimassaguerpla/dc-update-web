@@ -24,11 +24,17 @@ RSpec.describe DockerImagesController, type: :controller do
   # DockerImage. As you add validations to DockerImage, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      :user_name => "username",
+      :repository_name => "repository_name"
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      :user_name => nil,
+      :respository_name => nil
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +109,18 @@ RSpec.describe DockerImagesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          :user_name => "username2",
+          :repository_name => "repo2"
+        }
       }
 
       it "updates the requested docker_image" do
         docker_image = DockerImage.create! valid_attributes
         put :update, {:id => docker_image.to_param, :docker_image => new_attributes}, valid_session
         docker_image.reload
-        skip("Add assertions for updated state")
+        expect(docker_image.user_name).to eq("username2")
+        expect(docker_image.repository_name).to eq("repo2")
       end
 
       it "assigns the requested docker_image as @docker_image" do
