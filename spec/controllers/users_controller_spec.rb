@@ -85,6 +85,7 @@ RSpec.describe UsersController, type: :controller do
         post :create, {:user => valid_attributes}, valid_session
         expect(assigns(:user)).to be_a(User)
         expect(assigns(:user)).to be_persisted
+        expect(assigns(:user).docker_cfg_id).to_no be_nil
       end
 
       it "redirects to the created user" do

@@ -25,6 +25,7 @@ class DockerImagesController < ApplicationController
   # POST /docker_images.json
   def create
     @docker_image = DockerImage.new(docker_image_params)
+    @docker_image.user_id = current_user.id if current_user
 
     respond_to do |format|
       if @docker_image.save
@@ -69,6 +70,6 @@ class DockerImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def docker_image_params
-      params.require(:docker_image).permit(:user_name, :repository_name, :user_id)
+      params.require(:docker_image).permit(:user_name, :repository_name)
     end
 end

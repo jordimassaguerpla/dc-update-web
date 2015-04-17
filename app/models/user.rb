@@ -38,6 +38,12 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["nickname"]
       user.email = auth["info"]["email"]
+      dc = DockerCfg.new
+      dc.url = "set the docker config url"
+      dc.auth = "set the docker config auth"
+      dc.email = user.email
+      dc.save
+      user.docker_cfg_id = dc.id
     end 
   end
  

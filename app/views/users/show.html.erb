@@ -12,7 +12,12 @@
 
 <p>
   <strong>Docker cfg:</strong>
-  <%= link_to @user.docker_cfg_id, DockerCfg.find_by_id(@user.docker_cfg_id) %>
+  <% if DockerCfg.find_by_id(@user.docker_cfg_id).nil? %>
+    Error: there is no docker configuration
+  <% else %>
+    <%= link_to @user.docker_cfg_id, docker_cfg_path(DockerCfg.find_by_id(@user.docker_cfg_id)) %>
+  <% end %>
+
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -25,6 +25,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    if !params[:docker_cfg_id]
+      dc = DockerCfg.new
+      dc.url = "set the docker config url"
+      dc.auth = "set the docker config auth"
+      dc.email = @user.email
+      dc.save
+      @user.docker_cfg_id = dc.id
+    end
 
     respond_to do |format|
       if @user.save

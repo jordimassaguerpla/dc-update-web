@@ -1,3 +1,5 @@
-<%= link_to "Users", users_path %>
+<% if current_user && current_user.admin? %>
+  <%= link_to "Users", users_path %>
+  <%= link_to "Docker configurations", docker_cfgs_path %>
+<% end %>
 <%= link_to "Docker images", docker_images_path %>
-<%= link_to "Docker configurations", docker_cfgs_path %>

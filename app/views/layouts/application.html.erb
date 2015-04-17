@@ -8,7 +8,7 @@
 </head>
 <body>
 <% if current_user %>
-  <p><%= link_to "Sign out", signout_path %></p>
+  <p><%= link_to current_user.name, current_user %> | <%= link_to "Sign out", signout_path %></p>
 <% else %>
   <p><%= link_to "Sign in with github", "/auth/github" %></p>
 <% end %>
