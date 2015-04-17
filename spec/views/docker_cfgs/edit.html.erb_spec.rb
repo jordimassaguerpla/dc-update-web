@@ -5,7 +5,7 @@ RSpec.describe "docker_cfgs/edit", type: :view do
     @docker_cfg = assign(:docker_cfg, DockerCfg.create!(
       :url => "MyString",
       :auth => "MyString",
-      :email => "MyString"
+      :email => "a@b.com"
     ))
   end
 

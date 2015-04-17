@@ -8,6 +8,8 @@ RSpec.describe "docker_images/show", type: :view do
       :user_id => "1"
     ))
     @user = assign(:user, User.create!(
+      :name => "Name",
+      :email => "a@b.com"
     ))
   end
 

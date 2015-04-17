@@ -4,7 +4,7 @@ RSpec.describe "users/edit", type: :view do
   before(:each) do
     @user = assign(:user, User.create!(
       :name => "Name",
-      :email => "Email",
+      :email => "a@b.com",
       :docker_cfg_id => 1
     ))
   end
