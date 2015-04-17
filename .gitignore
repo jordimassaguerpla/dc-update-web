@@ -36,3 +36,6 @@ bower.json
 
 # vim
 *.swp
+
+# environment variables
+.env

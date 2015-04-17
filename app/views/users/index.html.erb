@@ -16,7 +16,11 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to user.docker_cfg_id, DockerCfg.find_by_id(user.docker_cfg_id) %></td>
+        <% if user.docker_cfg_id %>
+          <td><%= link_to user.docker_cfg_id, DockerCfg.find_by_id(user.docker_cfg_id) %></td>
+        <% else %>
+          <td></td>
+        <% end %>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
