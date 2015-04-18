@@ -7,7 +7,7 @@
     <tr>
       <th>User name</th>
       <th>Repository name</th>
-      <% if current_user && current_user.admin? %>
+      <% if is_admin? %>
         <th>user</th>
       <% end %>
       <th>Last check</th>
@@ -19,12 +19,12 @@
   <tbody>
     <% @docker_images.each do |docker_image| %>
       <tr>
-        <% if current_user && !current_user.admin? %>
+        <% if !is_admin? %>
           <% next if docker_image.user_id.to_s != current_user.id.to_s %>
         <% end %>
         <td><%= docker_image.user_name %></td>
         <td><%= docker_image.repository_name %></td>
-        <% if current_user && current_user.admin? %>
+        <% if is_admin? %>
           <td><%= link_to docker_image.user_id, User.find_by_id(docker_image.user_id) %></td>
         <% end %>
         <td>

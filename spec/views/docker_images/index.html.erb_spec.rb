@@ -12,6 +12,14 @@ RSpec.describe "docker_images/index", type: :view do
         :repository_name => "Repository Name"
       )
     ])
+    def view.is_admin?
+      true
+    end
+    def view.current_user
+      user = User.new(name: "Name", email: "a@b.com")
+      user.save
+      user
+    end
   end
 
   it "renders a list of docker_images" do

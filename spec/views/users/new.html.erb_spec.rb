@@ -7,6 +7,14 @@ RSpec.describe "users/new", type: :view do
       :email => "MyString",
       :docker_cfg_id => 1
     ))
+    def view.is_admin?
+      true
+    end
+    def view.current_user
+      user = User.new(name: "Name", email: "a@b.com")
+      user.save
+      user
+    end
   end
 
   it "renders new user form" do

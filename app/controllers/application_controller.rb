@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     return false if params[:controller] == "home"     && params[:action] == "index"
 
       # admin role
-    return false if !current_user.nil? && current_user.admin?
+    return false if is_admin?
 
     # user which is not admin role
     if (!current_user.nil?)
@@ -52,6 +52,11 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
   end
 
+  def is_admin?
+    current_user && current_user.admin?
+  end
+
+  helper_method :is_admin?
   helper_method :current_user
 
 end

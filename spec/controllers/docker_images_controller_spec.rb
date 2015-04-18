@@ -19,6 +19,9 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe DockerImagesController, type: :controller do
+  before :each do
+    allow_any_instance_of(ApplicationController).to receive(:is_admin?).and_return(true)
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # DockerImage. As you add validations to DockerImage, be sure to

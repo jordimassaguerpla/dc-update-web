@@ -19,6 +19,9 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe UsersController, type: :controller do
+  before :each do
+    allow_any_instance_of(ApplicationController).to receive(:is_admin?).and_return(true)
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
@@ -85,7 +88,7 @@ RSpec.describe UsersController, type: :controller do
         post :create, {:user => valid_attributes}, valid_session
         expect(assigns(:user)).to be_a(User)
         expect(assigns(:user)).to be_persisted
-        expect(assigns(:user).docker_cfg_id).to_no be_nil
+        expect(assigns(:user).docker_cfg_id).to_not be_nil
       end
 
       it "redirects to the created user" do

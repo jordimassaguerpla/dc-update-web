@@ -19,7 +19,7 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
-  <% if current_user && current_user.admin? %>
+  <% if is_admin? %>
     <div class="field">
       <%= f.label :docker_cfg_id %><br>
       <%= f.number_field :docker_cfg_id %>
