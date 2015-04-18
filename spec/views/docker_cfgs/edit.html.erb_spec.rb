@@ -7,6 +7,14 @@ RSpec.describe "docker_cfgs/edit", type: :view do
       :auth => "MyString",
       :email => "a@b.com"
     ))
+    def view.is_admin?
+      true
+    end
+    def view.current_user
+      user = User.new(name: "Name", email: "a@b.com")
+      user.save
+      user
+    end
   end
 
   it "renders the edit docker_cfg form" do

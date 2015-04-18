@@ -12,6 +12,14 @@ RSpec.describe "users/show", type: :view do
       :auth => "AUTH",
       :email => "a@b.com"
     ))
+    def view.is_admin?
+      true
+    end
+    def view.current_user
+      user = User.new(name: "Name", email: "a@b.com")
+      user.save
+      user
+    end
   end
 
   it "renders attributes in <p>" do
