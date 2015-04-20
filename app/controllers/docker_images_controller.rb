@@ -57,7 +57,7 @@ class DockerImagesController < ApplicationController
   def destroy
     @docker_image.destroy
     respond_to do |format|
-      format.html { redirect_to docker_images_url, notice: 'Docker image was successfully destroyed.' }
+      format.html { redirect_to "/", notice: 'Docker image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

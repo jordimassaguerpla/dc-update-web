@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DcUpdateWeb</title>
+  <title>Docker containment update</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <p>
+<h1>Docker containment Update</h1>
+<div id="header">
 <%= link_to "Home", "/" %>
 <% if current_user %>
   <%= link_to current_user.name, current_user %>
@@ -19,8 +21,18 @@
 <% else %>
   <%= link_to "Sign in with github", "/auth/github" %>
 <% end %>
+</div>
 </p>
 <%= yield %>
+<p></p>
+<div id="footer">
+<p>
+This has been developed during the <a href="https://hackweek.suse.com/projects/990">12th SUSE hack week project</a>
+</p>
+<p>
+Source code: <a href="https://github.com/jordimassaguerpla/dc-update-web">dc-update-web</a> and <a href="https://github.com/jordimassaguerpla/dc-update">dc-update</a>
+</p>
+</div>
 
 </body>
 </html>
